@@ -6,18 +6,7 @@ namespace DotnetCore.Tools.AssemblyScanner.Extentions
 {
 	public static class AssemblyExtensions
 	{
-		internal static bool AssemblyIsValidCLR(this string path)
-		{
-			try
-			{
-				AssemblyName.GetAssemblyName(path);
-				return true;
-			}
-			catch (Exception e)
-			{
-				return false;
-			}
-		}
+		
 		internal static Assembly LoadAssemblyIfPossible(this AssemblyName assemblyName)
 		{
 			try

@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Tools.AssemblyScanner", "DotnetCore.Tools.AssemblyScanner\DotnetCore.Tools.AssemblyScanner.csproj", "{52EE65B1-821A-4D31-81FA-F729402548E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetCore.Tools.AssemblyScanner", "DotnetCore.Tools.AssemblyScanner\DotnetCore.Tools.AssemblyScanner.csproj", "{52EE65B1-821A-4D31-81FA-F729402548E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Tools.AssemblyScanner.Example.WorkerService", "DotnetCore.Tools.WorkerService\DotnetCore.Tools.AssemblyScanner.Example.WorkerService.csproj", "{52142F6C-2462-4022-9902-72F6C34F0103}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Tools.AssemblyScanner.Example.Worker", "DotnetCore.Tools.AssemblyScanner.Example.Worker\DotnetCore.Tools.AssemblyScanner.Example.Worker.csproj", "{61204E12-FC8B-481D-A098-8113FD31324D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{52EE65B1-821A-4D31-81FA-F729402548E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52EE65B1-821A-4D31-81FA-F729402548E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52EE65B1-821A-4D31-81FA-F729402548E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52142F6C-2462-4022-9902-72F6C34F0103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52142F6C-2462-4022-9902-72F6C34F0103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52142F6C-2462-4022-9902-72F6C34F0103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52142F6C-2462-4022-9902-72F6C34F0103}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61204E12-FC8B-481D-A098-8113FD31324D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61204E12-FC8B-481D-A098-8113FD31324D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61204E12-FC8B-481D-A098-8113FD31324D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61204E12-FC8B-481D-A098-8113FD31324D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

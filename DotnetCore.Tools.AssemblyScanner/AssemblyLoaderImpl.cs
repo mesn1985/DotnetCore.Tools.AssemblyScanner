@@ -18,8 +18,8 @@ namespace DotnetCore.Tools.AssemblyScanner {
             Action<string> logMetheod)
         {
             this.logMethod = logMethod ?? System.Console.WriteLine;
-            this.loadedAssemblyNames = loadedAssemblyNames;
-            this.excludedRootAssemblyNames = excludedAssemblyNames;
+            this.loadedAssemblyNames = loadedAssemblyNames ?? new HashSet<string>();
+            this.excludedRootAssemblyNames = excludedAssemblyNames ?? new HashSet<string>();
         }
 
         public void LoadAllDLLAssembliesFromProjectBinFolderToAppDomain()

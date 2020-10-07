@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>dotnet-DotnetCore.Tools.WorkerService-13E310CE-3592-4918-9538-8CC116B9AB2E</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetCore.Tools.AssemblyScanner.Example.Worker\DotnetCore.Tools.AssemblyScanner.Example.Worker.csproj" />
+    <ProjectReference Include="..\DotnetCore.Tools.AssemblyScanner\DotnetCore.Tools.AssemblyScanner.csproj" />
+  </ItemGroup>
+</Project>
