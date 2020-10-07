@@ -17,7 +17,6 @@ namespace DotnetCore.Tools.WorkerService
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddAllWorkerServicesFromTheRootLibrary();
-                    //services.AddHostedService<Worker>();
                 });
     }
 }
