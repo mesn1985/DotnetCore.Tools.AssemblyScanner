@@ -16,7 +16,7 @@ namespace DotnetCore.Tools.WorkerService
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddAllWorkerServicesFromTheRootLibrary();
+                    services.AddAllWorkerServicesFromTheRootLibraryAsBackgroundServices();
                 });
     }
 }

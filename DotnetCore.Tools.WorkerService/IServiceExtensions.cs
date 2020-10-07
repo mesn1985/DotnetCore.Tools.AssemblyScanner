@@ -9,34 +9,46 @@ namespace DotnetCore.Tools.AssemblyScanner.Example.WorkerService
 {
     internal  static class IServiceExtensions
     {
-        public static IServiceCollection AddAllWorkerServicesFromTheRootLibrary(this IServiceCollection serviceCollection)
+        public static IServiceCollection AddAllWorkerServicesFromTheRootLibraryAsBackgroundServices
+            (this IServiceCollection serviceCollection)
         {
-            AssemblyLoaderFactory
-                .CreateAssemblyLoader(null, null, Console.WriteLine).LoadAllDLLAssembliesFromProjectBinFolderToAppDomain();
 
-            var genericMethod = GetAddHostedServiceGenericExtensionMethodInfo();
+           LoadAllDLLAssembliesFromProjectBinFolderToAppDomain();
 
-            var types =AppDomain.CurrentDomain
-                .GetAssemblies()
-                .Where(assembly => !(assembly.FullName.StartsWith("Microsoft") || assembly.FullName.StartsWith("System")))
-                .SelectMany(assembly => assembly.GetTypes())
-                .Where(type => type.IsClass)
-                .Where(type => type.BaseType.Equals(typeof(BackgroundService)));
+           var types = GetAllTypesThatExtentsBackgroundServices();
 
             foreach (Type type in types)
-            {
-                genericMethod.MakeGenericMethod(type).Invoke(null, new object[] { serviceCollection });
-               
-            }
+                AddTypeAsHostedService(serviceCollection, type);    
 
             return serviceCollection;
+        }
+
+        private static void AddTypeAsHostedService(IServiceCollection serviceCollection,Type type) {
+
+            GetAddHostedServiceGenericExtensionMethodInfo()
+            .MakeGenericMethod(type)
+            .Invoke(null, new object[] { serviceCollection });
+        }
+
+        private static IEnumerable<Type> GetAllTypesThatExtentsBackgroundServices() {
+            return
+            AppDomain.CurrentDomain
+            .GetAssemblies()
+            .Where(assembly => !(assembly.FullName.StartsWith("Microsoft") || assembly.FullName.StartsWith("System")))
+            .SelectMany(assembly => assembly.GetTypes())
+            .Where(type => type.IsClass)
+            .Where(type => type.BaseType.Equals(typeof(BackgroundService)));
         }
 
         private static MethodInfo GetAddHostedServiceGenericExtensionMethodInfo()
       => typeof(ServiceCollectionHostedServiceExtensions)
               .GetMethod("AddHostedService", new Type[] { typeof(IServiceCollection) });
-       
 
+        private static void LoadAllDLLAssembliesFromProjectBinFolderToAppDomain() {
+            AssemblyLoaderFactory
+            .CreateAssemblyLoader(null, null, Console.WriteLine)
+            .LoadAllDLLAssembliesFromProjectBinFolderToAppDomain();
+        }
 
     }
 }
