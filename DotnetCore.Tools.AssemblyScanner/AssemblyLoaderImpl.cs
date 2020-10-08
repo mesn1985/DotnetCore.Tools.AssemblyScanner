@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Xml.Serialization;
 using DotnetCore.Tools.AssemblyScanner.Extentions;
 
 namespace DotnetCore.Tools.AssemblyScanner {
@@ -24,20 +25,35 @@ namespace DotnetCore.Tools.AssemblyScanner {
 
         public void LoadAllDLLAssembliesFromProjectBinFolderToAppDomain()
         {
+            try
+            {
+                AddAlreadyLoadedAssemblyNameStringsToSetOfloadedAssemblyNames();
 
-            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-                loadedAssemblyNames.Add(assembly.FullName);
+                var dllFilePaths = GetAllFilePathsWithCLRValidMSILcode();
 
-            Directory
-                    .GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.dll")
-                    .Where(path => path.LeadsToAssemblyWithValidCLRIL())
-                    .Select(path => AssemblyName.GetAssemblyName(path))
-                    .Where(assemblyName => AssemblyShouldBeLoaded(assemblyName.FullName))
-                    .ToList()
-                    .ForEach(assemblyName =>
-                        LoadAssemblyDependencyTree(Assembly.Load(assemblyName)));
+                var assemblyNamesToLoad = GetAllAssemblyNamesThatShouldBeLoadedIntoTheAppDomain(dllFilePaths);
+
+                LoadAllAssembliesFrom(assemblyNamesToLoad);
+            }
+            catch (Exception e) {
+                logMethod(e.Message);
+            }
         }
-
+        private void LoadAllAssembliesFrom(IEnumerable<AssemblyName> assemblyNamesToLoad) {
+            foreach (var AssemblyName in assemblyNamesToLoad)
+                LoadAssemblyDependencyTree(Assembly.Load(AssemblyName));
+        
+        }
+        
+        private IEnumerable<AssemblyName> GetAllAssemblyNamesThatShouldBeLoadedIntoTheAppDomain(IEnumerable<string> dllFilePaths) 
+                => dllFilePaths.Select(path => AssemblyName.GetAssemblyName(path))
+                    .Where(assemblyName => AssemblyShouldBeLoaded(assemblyName.FullName));
+        
+        private IEnumerable<String> GetAllFilePathsWithCLRValidMSILcode()
+            => Directory
+               .GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.dll")
+               .Where(path => path.LeadsToAssemblyWithValidCLRIL());
+        
         private void LoadAssemblyDependencyTree(Assembly assembly)
             => assembly
                 .GetReferencedAssemblies()
@@ -60,5 +76,11 @@ namespace DotnetCore.Tools.AssemblyScanner {
         private bool AssemblyShouldBeLoaded(string assemblyName)
             => assemblyName.IsNotExcludedRootAssemblyName(excludedRootAssemblyNames)
                && !loadedAssemblyNames.Contains(assemblyName);
+
+        private void AddAlreadyLoadedAssemblyNameStringsToSetOfloadedAssemblyNames() {
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+                loadedAssemblyNames.Add(assembly.FullName);
+        }
+    
     }
 }
