@@ -26,12 +26,12 @@ AddHostedService is part of the "using Microsoft.Extensions.Hosting" namespace a
 runtime without using reflection so there is a caveat there. 
 
 
-**An experience i made while Writting this**  
+**An experience i made while Writting this**    
 I Manually tested this application from the IDE without any bugs.
 Then i tested this application published as a Cross-platform application  without  any bugs.
 Then i tested this application published as a win-x64 application, and i got an exception
 when trying to obtain an AssemblyName from from a Path. It would appear that the windows
 API is injected as a *.dll file into the root directory when publishing as a Win-x64 application.
 The win-x64 API dll file does not contain valid Core CLR IL, and would therefor cause  an exception.
-The issue is fixed, but  i figured that it might help others to know this:
+The issue is fixed, but  i figured that it might help others to know this:  
 **Different type of dll files can be injected during the build, depending on which runtime the application is publish for**  
