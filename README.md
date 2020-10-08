@@ -18,8 +18,8 @@ from the dll  file.
 **Included example**  
 In the included example workerService i use the IServiceCollection exetention method "AddAllWorkerServicesFromTheRootLibraryAsBackgroundServices"(part of the example)
 to add backgroundservices to the service worker.
-The  workerservice have a refrence to the "DotnetCore.Tools.AssemblyScanner.Example.Worker" project which contains a worker implementation. the worker implementations
-class is not referenced anywhere in the workerservice project. When the exentions method is invoked on the IServiceCollection in the workerService "Program.cs", the
+The  workerservice have a refrence to the "DotnetCore.Tools.AssemblyScanner.Example.Worker" project which contains a worker implementation. the worker implementation
+class is not referenced anywhere in the workerservice project  source code. When the exentions method is invoked on the IServiceCollection in the workerService "Program.cs", the
 extention method use the Assembly scanner to load all assemblies from all dll  files in the root directory. After that types from the current application domain is
 filtered by the ones that is of type "BackgroundService", once those are found, they are added as workerservice through the IServiceCollection extention method "AddHostedService".
 AddHostedService is part of the "using Microsoft.Extensions.Hosting" namespace and takes a generic parameter. Unfortantely you cannot add generic parameters dynamically during
@@ -34,4 +34,4 @@ when trying to obtain an AssemblyName from from a Path. It would appear that the
 API is injected as a *.dll file into the root directory when publishing as a Win-x64 application.
 The win-x64 API dll file does not contain valid Core CLR IL, and would therefor cause  an exception.
 The issue is fixed, but  i figured that it might help others to know this:  
-**Different type of dll files can be injected during the build, depending on which runtime the application is publish for**  
+**Different type of dll files can be injected during the build, depending on which runtime the application is published for**  
