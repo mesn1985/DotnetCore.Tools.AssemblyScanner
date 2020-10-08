@@ -16,9 +16,9 @@ from the dll  file.
     - DonetCore.Tools.AssemblyScanner.Example.WorkerService
 
 **Included example**  
-In the included example workerService i use the IServiceCollection exetention method "AddAllWorkerServicesFromTheRootLibraryAsBackgroundServices"(part of the example)
+In the included example workerService use the IServiceCollection exetention method "AddAllWorkerServicesFromTheRootLibraryAsBackgroundServices"(part of the example)
 to add backgroundservices to the service worker.
-The  workerservice have a refrence to the "DotnetCore.Tools.AssemblyScanner.Example.Worker" project which contains a worker implementation. the worker implementation
+The  "WorkerService" have a refrence to the "DotnetCore.Tools.AssemblyScanner.Example.Worker" project which contains a worker implementation. the worker implementation
 class is not referenced anywhere in the workerservice project  source code. When the exentions method is invoked on the IServiceCollection in the workerService "Program.cs", the
 extention method use the Assembly scanner to load all assemblies from all dll  files in the root directory. After that types from the current application domain is
 filtered by the ones that is of type "BackgroundService", once those are found, they are added as workerservice through the IServiceCollection extention method "AddHostedService".
