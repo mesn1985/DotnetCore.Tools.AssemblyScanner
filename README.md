@@ -1,8 +1,8 @@
 # DotnetCore.Tools.AssemblyScanner
-**Under Refactioring**
+**Under Refactoring**
 
 
-**What is it and what can it do?**
+**What is it and what can it do?**  
 It is a library, that can preload all dll file assemblies within the root directory.
 When a dependecy is  pulled from a nuget repository, or when another project is  referenced,
 the dll and all the dll dependencies of for that  project is copied into the project folder.
@@ -12,10 +12,10 @@ This mean that Assemblies can be picked up at runtime from the dll file's, and t
 from the dll  file.
 
 
-**Examlple executable project**
+**Examlple executable project**  
     - DonetCore.Tools.AssemblyScanner.Example.WorkerService
 
-**Included example**
+**Included example**  
 In the included example with worker service i use the IServiceCollection exetention method "AddAllWorkerServicesFromTheRootLibraryAsBackgroundServices"(part of the example)
 to add backgroundservices to the service worker.
 The  workerservice have a refrence to the "DotnetCore.Tools.AssemblyScanner.Example.Worker" project which contains a worker implementation. the worker implementations
