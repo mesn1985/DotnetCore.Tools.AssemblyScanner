@@ -5,6 +5,10 @@
     <UserSecretsId>dotnet-DotnetCore.Tools.WorkerService-13E310CE-3592-4918-9538-8CC116B9AB2E</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.8" />
   </ItemGroup>

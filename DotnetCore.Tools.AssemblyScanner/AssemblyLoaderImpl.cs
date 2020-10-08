@@ -30,6 +30,7 @@ namespace DotnetCore.Tools.AssemblyScanner {
 
             Directory
                     .GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.dll")
+                    .Where(path => path.LeadsToAssemblyWithValidCLRIL())
                     .Select(path => AssemblyName.GetAssemblyName(path))
                     .Where(assemblyName => AssemblyShouldBeLoaded(assemblyName.FullName))
                     .ToList()

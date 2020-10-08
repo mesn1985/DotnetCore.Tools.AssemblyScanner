@@ -1,4 +1,4 @@
-﻿{
+{
   "profiles": {
     "DotnetCore.Tools.WorkerService": {
       "commandName": "Project",

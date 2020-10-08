@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace DotnetCore.Tools.AssemblyScanner.Example.WorkerService
 {
-    internal  static class IServiceExtensions
+    internal  static class ServiceExtensions
     {
         public static IServiceCollection AddAllWorkerServicesFromTheRootLibraryAsBackgroundServices
             (this IServiceCollection serviceCollection)
