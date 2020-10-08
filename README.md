@@ -12,11 +12,11 @@ This mean that Assemblies can be picked up at runtime from the dll file's, and t
 from the dll  file.
 
 
-**Examlple executable project**  
+**executable project Example**    
     - DonetCore.Tools.AssemblyScanner.Example.WorkerService
 
 **Included example**  
-In the included example with worker service i use the IServiceCollection exetention method "AddAllWorkerServicesFromTheRootLibraryAsBackgroundServices"(part of the example)
+In the included example workerService i use the IServiceCollection exetention method "AddAllWorkerServicesFromTheRootLibraryAsBackgroundServices"(part of the example)
 to add backgroundservices to the service worker.
 The  workerservice have a refrence to the "DotnetCore.Tools.AssemblyScanner.Example.Worker" project which contains a worker implementation. the worker implementations
 class is not referenced anywhere in the workerservice project. When the exentions method is invoked on the IServiceCollection in the workerService "Program.cs", the
@@ -26,7 +26,7 @@ AddHostedService is part of the "using Microsoft.Extensions.Hosting" namespace a
 runtime without using reflection so there is a caveat there. 
 
 
-**An experience i made while Writting this**
+**An experience i made while Writting this**  
 I Manually tested this application from the IDE without any bugs.
 Then i tested this application published as a Cross-platform application  without  any bugs.
 Then i tested this application published as a win-x64 application, and i got an exception
