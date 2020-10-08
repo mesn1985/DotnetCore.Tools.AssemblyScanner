@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetCore.Tools.AssemblyScanner", "DotnetCore.Tools.AssemblyScanner\DotnetCore.Tools.AssemblyScanner.csproj", "{52EE65B1-821A-4D31-81FA-F729402548E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Tools.AssemblyScanner.Example.WorkerService", "DotnetCore.Tools.WorkerService\DotnetCore.Tools.AssemblyScanner.Example.WorkerService.csproj", "{52142F6C-2462-4022-9902-72F6C34F0103}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Tools.AssemblyScanner.Example.WorkerService", "DotnetCore.Tools.AssemblyScanner.Examples.WorkerService\DotnetCore.Tools.AssemblyScanner.Example.WorkerService.csproj", "{52142F6C-2462-4022-9902-72F6C34F0103}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Tools.AssemblyScanner.Example.Worker", "DotnetCore.Tools.AssemblyScanner.Example.Worker\DotnetCore.Tools.AssemblyScanner.Example.Worker.csproj", "{61204E12-FC8B-481D-A098-8113FD31324D}"
 EndProject
