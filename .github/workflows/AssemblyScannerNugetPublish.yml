@@ -26,7 +26,7 @@ jobs:
     - name: Publish to NuGet brandedoutcast/publish-nuget@v2
       uses: brandedoutcast/publish-nuget@v2
       with:
-        PROJECT_FILE_PATH: /DotnetCore.Tools.AssemblyScanner/DotnetCore.Tools.AssemblyScanner.csproj
+        PROJECT_FILE_PATH: DotnetCore.Tools.AssemblyScanner/DotnetCore.Tools.AssemblyScanner.csproj
         VERSION_REGEX: '^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$'
         TAG_FORMAT: '*'
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
