@@ -1,6 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <PackageId>MESN1985.test.AssemblyScanner</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Martin Edwin Schjødt Nielsen</Authors>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
