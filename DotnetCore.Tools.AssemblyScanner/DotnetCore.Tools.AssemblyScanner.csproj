@@ -5,6 +5,9 @@
     <Version>0.1.0</Version>
     <Authors>Martin Edwin Schjødt Nielsen</Authors>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>library</OutputType>
+    <packageDescription>A library that can preload all Assemblies from dll files within project root directory</packageDescription>
+    <RepositoryUrl>https://github.com/mesn1985/DotnetCore.Tools.AssemblyScanner.git</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
