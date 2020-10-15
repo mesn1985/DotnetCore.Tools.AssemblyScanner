@@ -14,4 +14,10 @@
     <Folder Include="Extentensions\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="nuget.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
