@@ -1,23 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    
     <PackageId>MESN1985.test.AssemblyScanner</PackageId>
+    
     <Version>0.1.0</Version>
+    
     <Authors>Martin Edwin Schjødt Nielsen</Authors>
+    
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    
     <OutputType>library</OutputType>
+    
     <packageDescription>A library that can preload all Assemblies from dll files within project root directory</packageDescription>
-    <RepositoryUrl>https://nuget.pkg.github.com/mesn1985</RepositoryUrl>
+  
+    <RepositoryUrl>https://github.com/mesn1985/DotnetCore.Tools.AssemblyScanner</RepositoryUrl>
+    
   </PropertyGroup>
 
   <ItemGroup>
+    
     <Folder Include="Extentensions\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="nuget.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+  
   </ItemGroup>
 
 </Project>
